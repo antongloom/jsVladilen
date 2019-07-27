@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Замыкание</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<script>
+		/*function creatCalcFunction(n) {
+			return function() {
+				console.log(1000*n)
+			}
+		}
+
+		const culc = creatCalcFunction(42)
+		culc()*/
+
+		/*function createIncrementer(n) {
+			return function(num) {
+				return n + num
+			}
+		}
+
+		const cul = createIncrementer(1)
+		const culTwo = createIncrementer(2)
+
+		console.log(cul(10))
+		console.log(culTwo(10))*/
+
+
+
+		function urlGenerator(domain) {
+			return function(url) {
+				return `https://${url}.${domain}`
+			}
+		}
+
+		const comUrl = urlGenerator('com')
+
+		console.log(comUrl('google'))
+
+
+		const ruUrl = urlGenerator('ru')
+
+		console.log(ruUrl('vkontakte'))
+
+	</script>
+</body>
+</html>

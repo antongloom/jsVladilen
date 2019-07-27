@@ -4,46 +4,37 @@
 	<meta charset="UTF-8">
 	<title>Прототипы</title>
 	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
+		
 	</style>
 </head>
 <body>
 
-
-	
 <script>
 	/*const person = {
-		name: 'Max',
-		age: 25,
-		greet: function(){
-			console.log('Greet')
+		name: 'Anton',
+		age: 30,
+		greet: function() {
+			console.log('Greet!')
 		}
-	} */
+	}*/
 
 	const person = new Object({
-			name: 'Max',
-			age: 25,
-			greet: function(){
-			console.log('Greet')
+		name: 'Anton',
+		age: 30,
+		greet: function() {
+			console.log('Greet!')
 		}
 	})
 
-	Object.prototype.sayHello = function(){
-		console.log('Привет')
+	Object.prototype.sayHello = function() {
+		console.log('Hello')
 	}
 
-	const lena  = Object.create(person)
+	const lena = Object.create(person)
 	lena.name = 'Elena'
 
-	const str = new String('I am string')
-
-
-
-	/*Прототип - это определенный объект, который присутствует у объектов и он вызывается по цепочке сверху вниз*/
-
+	//const str = 'My name'
+	const str = new String('My name')
 
 </script>
 </body>

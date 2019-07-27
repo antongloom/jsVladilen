@@ -4,79 +4,62 @@
 	<meta charset="UTF-8">
 	<title>Контекст</title>
 	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
+		 
 	</style>
 </head>
 <body>
 
-
-	
 <script>
-
-	function hello(){
+	function hello() {
 		console.log('Hello', this)
 	}
-	
+
 	const person = {
-		name: 'Vladilen',
-		age: 25,
+		name: 'Anton',
+		age: 30,
 		sayHello: hello,
-		sayHelloWindow: hello.bind(document),
-		logInfo: function(job, phone){
-			console.group('${this.name} info:')
+		sayHelloWindow: hello.bind(window),
+		logInfo: function(job, phone) {
+			console.group(`${this.name} info:`)
 			console.log(`Name is ${this.name}`)
 			console.log(`Age is ${this.age}`)
-			console.log(`Job is ${job}`)
-			console.log(`Phone is ${phone}`)
+			console.log(`${job}`)
+			console.log(`${phone}`)
 			console.groupEnd()
 		}
 	}
 
 	const lena = {
-		name: 'Elena',
-		age: 21
+		name: 'Lena',
+		age: 23
 	}
 
-	//person.logInfo.bind(lena)()  // Метод bind() возвращает новую функцию
-
-
-	/*const fnLenaLogInfo = person.logInfo.bind(lena, 'frontend', 905595454)
-	fnLenaLogInfo() */
-	//person.logInfo.call(lena, 'frontend', 905595454)
-	person.logInfo.apply(lena, ['frontend', 905595454])
-
-
-
-
-/*Ключевое слово this указывает на тот объект в контектсте, которого оно было вызвано*/
-
-
-/*Пример связки прототипа и ключевого слова this*/
+	//const fnLena = person.logInfo.bind(lena, 'frontend', '8905-585-32-45')
+	//fnLena()
+	//person.logInfo.call(lena, 'frontend', '8905-585-32-45')
+	person.logInfo.apply(lena, ['frontend', '8905-585-32-45'])
 
 
 	const array = [1,2,3,4,5]
 
-	const array1 = [1,1,1]
-
-	/*function multyBy(arr, n){
-		return arr.map(function(i){
-			return i * n
-		})
-	} */
-
-	//console.log(multyBy(array, 5))
-
-
-	Array.prototype.multyBy = function(n){
-		return this.map(function(i){
-			return i *n
+	/*function mulBy(arr, n){
+		return arr.map(function(i) {
+			return i*n
 		})
 	}
 
-	console.log(array1.multyBy(10))
+	console.log(mulBy(array, 2)) */
+
+	/*Array.prototype.mulBy = function(n) {
+		console.log(this)
+	}*/
+
+	Array.prototype.mulBy = function(n) {
+		return this.map(function(i) {
+			return i*n
+		}) 
+	}
+	console.log(array.mulBy(2))
 	
 </script>
 </body>
