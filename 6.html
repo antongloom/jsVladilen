@@ -2,14 +2,40 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Промисы</title>
+	<title>Объекты</title>
 	<style>
 		
 	</style>
 </head>
 <body>
 	<script>
-		
+		const person = Object.create({},{
+			name: {
+				value: 'Anton',
+				enumerable: true,
+				writable: true // Разрешает переименовать
+			},
+			birthYear: {
+				value: 1989,
+				enumerable: false,
+				writable: false 
+			},
+			age: {
+				get() {
+					return new Date().getFullYear() - this.birthYear
+				},
+				set(value) {
+					document.body.style.background = 'red'
+					console.log('Set age', value)
+				}
+			}
+		})
+
+		person.name = 'Andrei'
+
+		for(let key in person){
+			console.log('Key', key, person[key])
+		}
 
 	</script>
 </body>
